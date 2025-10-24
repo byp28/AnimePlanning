@@ -1,8 +1,8 @@
 
 export default function Footer() {
     return (
-        <div className='footer'>
-            <h6>By Boutou Yan</h6>
+        <div className='w-full bg-gray-900 flex p-10 items-center justify-center'>
+            <h6>Par Yan Boutou</h6>
         </div>
     )
 }

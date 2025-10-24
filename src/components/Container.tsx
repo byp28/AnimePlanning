@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../AppDispatch";
-import MangaCard from "./layouts/AnimeCard"
 import { RootState } from "../store";
 import { useEffect } from "react";
 import { fetchAnime } from "../features/animes";
+import AnimeCard from "./layouts/AnimeCard";
 
 export default function Container() {
 
@@ -18,10 +18,10 @@ export default function Container() {
     if (error) return <p>Error: {error}</p>;
     console.log(animes)
     return (
-        <div className="Container">
+        <div className="w-full flex items-center flex-wrap gap-4">
             {
                 animes.data.map((anime)=>(
-                    <MangaCard key={anime.mal_id} anime={anime}/>
+                    <AnimeCard key={anime.mal_id} anime={anime}/>
                 ))
             }
         </div>

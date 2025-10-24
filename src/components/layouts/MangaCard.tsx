@@ -8,10 +8,10 @@ interface IMangaCard{
 
 export default function AnimeCard(props:IMangaCard) {
     return (
-        <div className="Card">
-            <Link to={"/manga/"+props.manga.mal_id}>
-            <div className='ImgCard'>
-                    <img src={props.manga.images.jpg.image_url} alt="" />
+        <div className="w-75 p-2 rounded-sm bg-gray-500/45">
+            <Link className="w-full" to={"/manga/"+props.manga.mal_id}>
+            <div className='w-full'>
+                    <img className="w-full" src={props.manga.images.jpg.image_url} alt="" />
                     <div className='CardInfo'>
                         <h4>{props.manga.title}</h4>
                     </div>

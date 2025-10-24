@@ -59,28 +59,20 @@ export default function Headers() {
 
 
     return (
-        <div className="header">
-            <div className="menu">
-                <h1></h1>
-                <ul>
-                    <Link to={"/"}>
-                        <li>Accueil</li>
-                    </Link>
-                    <li onClick={ActiveAnimeMenu} >Animes</li>
-                    <li onClick={ActiveMangaMenu}>Manga</li>
-                </ul>
-                <div>
-                    <Link to={`/MyTodo`}>
-                        <button>MyTodo</button>
-                    </Link>
-                    
-                    <Link to={`/login`}>
-                        <button>Se connecter</button>
-                    </Link>
+        <div className="w-full fixed top-0 left-0 z-50 px-10 py-6 bg-gray-900/70 text-white">
+            <div className="w-full flex items-center justify-between">
+                <h1 className="text-3xl font-semibold">ToDoAnime</h1>
+                <nav className="flex gap-4 font-semibold items-center">
+                    <Link className="cursor-pointer" to={"/"}>Accueil</Link>
+                    <span className="cursor-pointer" onClick={ActiveAnimeMenu}>Animes</span>
+                    <span className="cursor-pointer" onClick={ActiveMangaMenu}>Manga</span>
+                </nav>
+                <div className="flex gap-4 font-semibold items-center">
+                    <Link to={`/MyTodo`}>MyTodo</Link>
                     <button onClick={ActiveSearchMenu}>Search</button>
                 </div>
             </div>
-            <div className={subMenu ? "subMenuActive" : "subMenu"}>
+            <div className={subMenu ? "subMenuActive" : "hidden"}>
                 <div className={AnimeMenu ? "AnimeMenuActive" : "AnimeMenu"}>
                     <h1>Anime</h1>
                     <ul>
@@ -91,7 +83,7 @@ export default function Headers() {
                         ))}
                     </ul>
                 </div>
-                <div className={MangaMenu ? "MangaMenuActive" : "MangaMenu"}>
+                <div className={MangaMenu ? "MangaMenuActive" : "hidden"}>
                     <h1>Manga</h1>
                     <ul>
                         {manga.data.map((genre)=>(

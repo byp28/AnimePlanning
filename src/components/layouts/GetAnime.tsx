@@ -19,7 +19,7 @@ export default function GetAnimeCopmonent() {
     const [CheckAnime, setCheckAnime] = useState(false)
     
     useEffect(() => {
-        Check()
+        //Check()
         dispatch(GetAnime(id));
         dispatch(fetchRecommendation({id,type}))
     }, [dispatch]);
@@ -33,13 +33,13 @@ export default function GetAnimeCopmonent() {
         setCheckAnime(false)
     }
 
-    const Check = ()=>{
-        if(!CheckAnimeToLocalStorage(parseInt(id as string))){
-            setCheckAnime(false)
-        }else{
-            setCheckAnime(true)
-        }
-    }
+    // const Check = ()=>{
+    //     if(!CheckAnimeToLocalStorage(parseInt(id as string))){
+    //         setCheckAnime(false)
+    //     }else{
+    //         setCheckAnime(true)
+    //     }
+    // }
 
     console.log(localStorage)
     if (loading) return <LoadingComponents/>
@@ -47,12 +47,11 @@ export default function GetAnimeCopmonent() {
     console.log(anime)
 
     return (
-        <div className='AnimePage'>
-            <div className='Slider'>
-                <img src={anime.data?.images.jpg.large_image_url} alt="" />
-                <div className='SliderInfo'>
-                    <div className='AnimeInfo'>
-                        <h2>{anime.data?.title}</h2>
+        <div className='w-full flex flex-col p-20'>
+            <div className='w-full flex gap-4 justify-around'>
+                <img src={anime.data?.images.jpg.large_image_url} alt="anime.data?.title" />
+                    <div className="flex flex-col gap-2 w-200">
+                        <h2 className='text-4xl text-white font-semibold'>{anime.data?.title}</h2>
                         <h3>{anime.data?.title_japanese}</h3>
                         <h3>{anime.data?.title_english}</h3>
                         <div className='allGenre'>
@@ -91,7 +90,6 @@ export default function GetAnimeCopmonent() {
                         {CheckAnime ? <button onClick={()=>RemoveAnime(anime.data)} className='btnRemove'>Remove à la TodoList</button> : <button onClick={()=>AddAnime(anime.data)} className='btnAdd'>Ajouter à la TodoList</button>}
                         
                     </div>
-                </div>
             </div>
             <div className="space"></div>
             <section>

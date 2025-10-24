@@ -27,7 +27,7 @@ const ThisAnime = createSlice({
 
     },
     extraReducers : (builder) => {
-        builder8
+        builder
             .addCase(GetAnime.pending, (state) => {
                 state.loading = true;
                 state.error = null;

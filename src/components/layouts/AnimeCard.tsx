@@ -7,20 +7,11 @@ interface anim{
 
 export default function AnimeCard(props:anim) {
     return (
-        <div className="Card">
+        <div className="w-60 p-4 flex flex-col gap-2 rounded-sm bg-gray-500/30 cursor-pointer hover:bg-gray-500/60">
             <Link to={"/anime/"+props.anime.mal_id}>
-            <div className='ImgCard'>
-                    <img src={props.anime.images.jpg.image_url} alt="" />
-                    <div className='CardInfo'>
-                        <h4>{props.anime.title}</h4>
-                    </div>
-                </div>
+                <img src={props.anime.images.jpg.image_url} alt="" />
             </Link>
-            <Link to={"/anime/"+props.anime.mal_id}>
-                <div className="Info">
-                    <h4>{props.anime.title}</h4>
-                </div>
-            </Link>
+            <Link className="text-base text-white font-semibold" to={"/anime/"+props.anime.mal_id}>{props.anime.title}</Link>
         </div>
     )
 }

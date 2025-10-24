@@ -1,6 +1,5 @@
 import './App.css'
 import Footer from './components/Footer'
-import Container from './components/Container'
 import Headers from './components/Headers'
 import GetAnimeCopmonent from './components/layouts/GetAnime'
 import { BrowserRouter,Route,Routes, useLocation } from 'react-router-dom'
@@ -10,6 +9,7 @@ import GetManga from './components/layouts/GetManga'
 import SearchAnime from './components/SearchAnime'
 import Login from './components/Login'
 import MyTodo from './components/MyTodo'
+import Home from './page/Home'
 
 function App() {
 
@@ -23,11 +23,9 @@ function App() {
     <>
       <BrowserRouter>
         <Headers/>
-        <div className="space"></div>
-        <div className="space"></div>
-        <main>
+        <main className='w-full min-h-screen bg-gray-800'>
           <Routes>
-            <Route path='/' element={<Container/>}/>
+            <Route path='/' element={<Home/>}/>
             <Route path='/MyTodo' element={<ReloadWrapper><MyTodo/></ReloadWrapper>}/>
             <Route path='/login' element={<ReloadWrapper><Login/></ReloadWrapper>}/>
             <Route path='/anime/:id' element={<ReloadWrapper><GetAnimeCopmonent/></ReloadWrapper>}/>
